@@ -6,4 +6,6 @@
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="practice.BinarySearchTreeOperations"/>
 <fullyQualifiedTypeName name="practice.TreeNodeTest"/>
+<fullyQualifiedTypeName name="com.algo.ravi.InsertionSortAlgo"/>
+<fullyQualifiedTypeName name="com.algo.ravi.MergeSortAlgo"/>
 </qualifiedTypeNameHistroy>

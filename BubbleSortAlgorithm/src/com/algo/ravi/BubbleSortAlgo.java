@@ -7,12 +7,12 @@ public class BubbleSortAlgo {
 			return null;
 		}
 		int temp;
-		for(int i = ar.length-1; i > 0 ; i--) {
-			for(int j = 0;j < i; j++) {
-				if(ar[j] > ar[j+1]) {
-					temp = ar[j];
-					ar[j] = ar[j+1];
-					ar[j+1] = temp;
+		for(int outer = ar.length-1; outer > 0 ; outer--) {
+			for(int inner = 0;inner < outer; inner++) {
+				if(ar[inner] > ar[inner+1]) {
+					temp = ar[inner];
+					ar[inner] = ar[inner+1];
+					ar[inner+1] = temp;
 				}
 			}
 		}
