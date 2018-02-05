@@ -2,6 +2,8 @@ package com.algo.ravi;
 
 import static org.junit.Assert.assertEquals;
 
+import java.awt.dnd.MouseDragGestureRecognizer;
+
 import org.junit.jupiter.api.Test;
 
 public class BinarySearchTreeAlgo {
@@ -55,7 +57,6 @@ public class BinarySearchTreeAlgo {
 				 }
 			 }
 		}
-		System.out.println(root);
 		return root;
 	}
 	/**
@@ -194,7 +195,97 @@ public class BinarySearchTreeAlgo {
 		
 		return successor;
 	}
-
+	
+	public void preOrderTraversal(TreeNodeAlgo root) {
+		if(root == null) {
+			return;
+		}
+		
+		System.out.println(root.getData() + "->");
+		
+		preOrderTraversal(root.getLeftChild());
+		preOrderTraversal(root.getRightChild());
+	}
+	
+	public void postOrderTraversal(TreeNodeAlgo root) {
+		if(root == null) {
+			return;
+		}
+		
+		if(root.getLeftChild() != null) {
+			postOrderTraversal(root.getLeftChild());
+		}else if(root.getRightChild() != null) {
+			postOrderTraversal(root.getRightChild());
+		}
+		
+		System.out.println(root.getData() + "->");
+	}
+	
+	public void inOrderTraversal(TreeNodeAlgo root) {
+		if(root == null) {
+			return;
+		}
+		
+		inOrderTraversal(root.getLeftChild());
+		
+		System.out.println(root.getData() + "->");
+		
+		inOrderTraversal(root.getRightChild());
+	}
+	
+	public int findMinimumValueNode() {
+		
+		if(root == null) {
+			return Integer.MIN_VALUE;
+		}
+		if(root.getLeftChild() != null) {
+			return root.findMinimumValueofTheTree(root.getLeftChild());
+		}
+		
+		return root.getData();
+	}
+	
+	public int maxDepth(TreeNodeAlgo root) {
+		if(root == null) {
+			return 0;
+		}
+		
+		if(root.getLeftChild() == null && root.getRightChild() == null) {
+			return 0;
+		}
+		
+		int maxLeftDepth = 1 + maxDepth(root.getLeftChild());
+		int maxRightDepth = 1 + maxDepth(root.getRightChild());
+		
+		return Math.max(maxLeftDepth, maxRightDepth);
+	}
+	
+	/*public void mirror(TreeNodeAlgo root) {
+		if(root == null) {
+			return;
+		}
+		Queue<TreeNodeAlgo> mirrorQueue = new 
+		if() {
+			
+		}
+	}*/
+	
+	public void mirror(TreeNodeAlgo root) {
+		if(root == null) {
+			return;
+		}
+		
+		System.out.println(root.getData());
+		System.out.println("----------------------------------------------------------");
+		mirror(root.getLeftChild());
+		mirror(root.getRightChild());
+		
+		//swap the left and right child of each node
+		TreeNodeAlgo tempNode =root.getLeftChild();
+		root.setLeftChild(root.getRightChild());
+		root.setRightChild(tempNode);
+	}
+	
 	public static void main(String[] args) {
 		
 
@@ -203,9 +294,14 @@ public class BinarySearchTreeAlgo {
 	@Test
 	public void testInsertMethod() {
 		BinarySearchTreeAlgo bs = new BinarySearchTreeAlgo();
-		bs.insertIterative(1);
+		bs.insertIterative(10);
 		bs.insertIterative(3);
 		bs.insertIterative(5);
+		bs.insert(12);
+		bs.insert(6);
+		bs.insert(17);
+		bs.insert(20);
+		bs.insert(11);
 		
 		TreeNodeAlgo nodeFound = bs.find(2);
 		assertEquals("node with current data doesn't exist",null,nodeFound);
@@ -218,6 +314,8 @@ public class BinarySearchTreeAlgo {
 		
 		nodeFound = bs.findIterative(2);
 		assertEquals("node with current data doesn't exist",null,nodeFound);
+		
+		bs.mirror(bs.root);
 	}
 
 }

@@ -49,7 +49,7 @@ public class TreeNodeAlgo {
 		return data;
 	}
 	
-	protected void insert(int data) {
+	public void insert(int data) {
 		if(data < this.data) {
 			if(leftChild != null) {
 				leftChild.insert(data);
@@ -84,6 +84,15 @@ public class TreeNodeAlgo {
 		}
 		
 		return nodeFound;
+	}
+	
+	public int findMinimumValueofTheTree(TreeNodeAlgo leftChild) {
+		
+		if(leftChild.getLeftChild() != null) {
+			leftChild.findMinimumValueofTheTree(leftChild.getLeftChild());
+		}
+		
+		return leftChild.getData();
 	}
 	
 	@Override

@@ -22,6 +22,25 @@ public class InsertionSortAlgo {
 		}
 		return ar;
 	}
+	
+	public int[] insert(int[] actualArray) {
+		if(actualArray == null) {
+			//throw error
+		}
+		
+		for(int outer = 1 ; outer < actualArray.length; outer++) {
+			int compareValue = actualArray[outer];
+			int inner = outer-1;
+			
+			while(inner > 0 && actualArray[inner] > compareValue) {
+				actualArray[inner+1] = actualArray[inner];
+				inner--;
+			}
+			actualArray[inner+1] = compareValue;
+		}
+		return actualArray;
+	}
+	
 	public static void main(String[] args) {
 		int[] ar = new int[10];
 		
