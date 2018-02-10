@@ -39,6 +39,14 @@ public class MatrixToeplitz {
 		int[][] matrix3 = {{1,2,3},{2,1,2},{3,2,1}};
 		ismatrixToeplitz = matrixToeplitz(matrix3);
 		assertEquals(true, ismatrixToeplitz);
+	     
+	    int[][] matrix4 = {{1,5,6},{2,1,5},{3,2,1},{4,3,2}};
+		ismatrixToeplitz = matrixToeplitz(matrix4);
+		assertEquals(true, ismatrixToeplitz);
+		
+	    int[][] matrix5 = {{1,8,3,2,5,0,0},{0,1,8,3,2,5,0},{0,0,1,8,3,2,5}};
+		ismatrixToeplitz = matrixToeplitz(matrix5);
+		assertEquals(true, ismatrixToeplitz);
 	}
 
 }
