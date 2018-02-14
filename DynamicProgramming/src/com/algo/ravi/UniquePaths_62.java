@@ -19,19 +19,14 @@ public class UniquePaths_62 {
 				j = 0;
 			}
 			
-			if(i == 0 && j==0) {
-				matrix[i][j] = 1;
-				j++;
-			} else {
-				if(j > 0 && i >0 ) {
-					for(int r=1;r<j+1;r++) {
-						matrix[i][j] = matrix[i][j-1] + matrix[i-1][r];
-					}
-				}else {
-					matrix[i][j] = 1;
+			if(j > 0 && i >0 ) {
+				for(int r=1;r<j+1;r++) {
+					matrix[i][j] = matrix[i][j-1] + matrix[i-1][r];
 				}
-				j++;
+			}else {
+				matrix[i][j] = 1;
 			}
+			j++;
 		}
 		
 		return matrix[m-1][n-1];
