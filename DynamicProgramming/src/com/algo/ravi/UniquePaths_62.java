@@ -1,5 +1,7 @@
 package com.algo.ravi;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class UniquePaths_62 {
@@ -37,6 +39,8 @@ public class UniquePaths_62 {
 	
 	@Test
 	public void testFindUniquePaths() {
-		System.out.println(findUniquePaths(3, 3));
+		int uniqueWays = findUniquePaths(3, 3);
+		
+		assertEquals(6, uniqueWays);
 	}
 }
