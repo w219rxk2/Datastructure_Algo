@@ -2,8 +2,6 @@ package com.algo.ravi;
 
 import static org.junit.Assert.assertEquals;
 
-import java.awt.dnd.MouseDragGestureRecognizer;
-
 import org.junit.jupiter.api.Test;
 
 public class BinarySearchTreeAlgo {
