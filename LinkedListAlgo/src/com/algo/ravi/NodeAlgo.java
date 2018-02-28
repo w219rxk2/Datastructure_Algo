@@ -20,4 +20,8 @@ public class NodeAlgo<T> {
 		this.nextNode = nextNode;
 	}
 	
+	@Override
+	public String toString() {
+		return "NodeAlgo [data=" + data + ", nextNode=" + nextNode + "]";
+	}
 }
