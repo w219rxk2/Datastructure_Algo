@@ -7,12 +7,14 @@ public class BubbleSortAlgo {
 			return null;
 		}
 		int temp;
-		for(int outer = ar.length-1; outer > 0 ; outer--) {
-			for(int inner = 0;inner < outer; inner++) {
-				if(ar[inner] > ar[inner+1]) {
-					temp = ar[inner];
-					ar[inner] = ar[inner+1];
-					ar[inner+1] = temp;
+		for(int outer = ar.length; outer > 0 ; outer--) {
+			for(int inner = 0;inner <= outer-1; inner++) {
+				if(inner+1 != ar.length) {
+					if(ar[inner] > ar[inner+1]) {
+						temp = ar[inner];
+						ar[inner] = ar[inner+1];
+						ar[inner+1] = temp;
+					}
 				}
 			}
 		}
@@ -44,5 +46,4 @@ public class BubbleSortAlgo {
 			System.out.print(sortedArray[i] + " ");
 		}
 	}
-
 }

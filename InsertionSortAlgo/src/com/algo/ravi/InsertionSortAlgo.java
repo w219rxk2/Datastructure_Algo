@@ -23,6 +23,26 @@ public class InsertionSortAlgo {
 		return ar;
 	}
 	
+	public int[] insertionSort2(int[] ar) {
+	if(ar.length == 1) {
+		return ar;
+	}
+	
+	for(int i=1; i< ar.length; i++) {
+		int j = i-1;
+		int temp = ar[i];
+		while(j>=0 && ar[j] > temp) {
+			ar[j+1] = ar[j];
+			j--;
+		}
+		
+		ar[j+1] = temp;
+	}
+	return ar;
+	}
+	
+	
+	
 	public int[] insert(int[] actualArray) {
 		if(actualArray == null) {
 			//throw error
@@ -55,14 +75,14 @@ public class InsertionSortAlgo {
 		ar[8] = 20;
 		ar[9] = 2;
 		
-		for(int i=0; i<ar.length-1;i++) {
+		for(int i=0; i<ar.length;i++) {
 			System.out.print(ar[i] + " ");
 		}
 		
 		InsertionSortAlgo bs = new InsertionSortAlgo();
-		int[] sortedArray = bs.insertionSort(ar);
+		int[] sortedArray = bs.insertionSort2(ar);
 		System.out.println();
-		for(int i=0; i<sortedArray.length-1;i++) {
+		for(int i=0; i<sortedArray.length;i++) {
 			System.out.print(sortedArray[i] + " ");
 		}
 
